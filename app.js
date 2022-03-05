@@ -14,7 +14,18 @@ const app = Vue.createApp({
   
     data() {
         return {
-            quotes: quotes
+            quotes: quotes,
+            newQuote: "Hola Mundo"
+        }
+    },
+    methods: {
+        addQuote() {
+            if(this.newQuote == "") return;
+            this.quotes.unshift({
+                quote: this.newQuote,
+                author: "Carlos Manuel"
+            });                
+            
         }
     }
 
