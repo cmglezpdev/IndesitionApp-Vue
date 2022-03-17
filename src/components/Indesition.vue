@@ -27,24 +27,31 @@ export default {
 
         async getAnswer() {
 
-            this.answer = "Pensando ...";
-            const url = "https://yesno.wtf/api";
-        
-            const { answer, image } = await fetch(url).then( result => result.json() )
+            try {
+                
+                this.answer = "Pensando ...";
+                const url = "https://yesno.wtf/api";
+            
+                const { answer, image } = await fetch(url).then( result => result.json() )
+    
+                switch( answer ) {
+                    case "no":
+                        this.answer = "NO!!";
+                        break;
+                    case "yes":
+                        this.answer = "SII!!"
+                        break;
+                    case "mybe":
+                        this.answer = "QUISAS!!"
+                        break;
+                }
+    
+                this.img = image;
 
-            switch( answer ) {
-                case "no":
-                    this.answer = "NO!!";
-                    break;
-                case "yes":
-                    this.answer = "SII!!"
-                    break;
-                case "mybe":
-                    this.answer = "QUISAS!!"
-                    break;
+            } catch (error) {
+                this.answer = 'No se pudo cargar del Api';
+                this.img = null;
             }
-
-            this.img = image;
 
         }
 
