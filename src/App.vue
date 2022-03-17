@@ -1,18 +1,14 @@
 <template>
 <div>
   <Indesition />
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <Counter :start="100"/> -->
 </div>
 </template>
 
 <script>
-// import Counter from './components/Counter.vue'
 import Indesition from './components/Indesition.vue'
 export default {
   name: 'App',
   components: {
-      // Counter
       Indesition
   }
 }
